@@ -1,0 +1,25 @@
+# Kullanıcıdan boy (santimetre cinsinden), kilo ve cinsiyet bilgilerini alın
+boy_cm = float(input("Boyunuzu girin (santimetre cinsinden): "))
+kilo = float(input("Kilonuzu girin (kilogram cinsinden): "))
+cinsiyet = input("Cinsiyetinizi girin (Erkek için 'E', Kadın için 'K'): ").upper()
+
+# Boy'u metre cinsine dönüştürün
+boy_metre = boy_cm / 100
+
+# İdeal kiloyu hesaplayın
+if cinsiyet == 'E':
+    ideal_kilo = (boy_metre ** 2) * 25
+elif cinsiyet == 'K':
+    ideal_kilo = (boy_metre ** 2) * 23
+else:
+    print("Geçersiz cinsiyet girişi. Lütfen 'E' veya 'K' girin.")
+    ideal_kilo = None
+
+# İdeal kilo ile mevcut kiloyu karşılaştırın ve sonucu görüntüleyin
+if ideal_kilo is not None:
+    if kilo == ideal_kilo:
+        print("Mevcut kilonuz ideal kilonuza eşittir.")
+    elif kilo < ideal_kilo:
+        print("Mevcut kilonuz ideal kilonun altındadır. Biraz kilo almanız gerekebilir.")
+    else:
+        print("Mevcut kilonuz ideal kilonun üstündedir. Biraz kilo vermeniz gerekebilir.")
